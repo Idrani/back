@@ -43,3 +43,10 @@ def list_detail(request, pk):
     if request.method == 'GET': 
         tutorial_serializer = LISTSerializer(tutorial) 
         return JsonResponse(tutorial_serializer.data) 
+
+@csrf_exempt
+def SaveFile(request):
+    file=request.FILES['myFile']
+    file_name = default_storage.save(file.name,file)
+
+    return JsonResponse(file_name,safe=False)        

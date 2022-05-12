@@ -23,6 +23,7 @@ urlpatterns = [
     url('', include('followUP.urls')),
     url('', include('ListPieces.urls')),
     url('', include('validation.urls')),
-    path('api/', include('users.urls'))
+    path('api/', include('users.urls')),
+    
 ]
 

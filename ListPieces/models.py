@@ -7,12 +7,15 @@ class LIST_PIECES(models.Model):
     Index = models.IntegerField(default=0)
 
     Qte = models.CharField(max_length=100,default="..")
+    Ref = models.CharField(max_length=100,default="..")
+    statut = models.CharField(max_length=100,default="pas lancer")
+    
     Désignation = models.CharField(max_length=100,default="..")
     Matiére = models.CharField(max_length=100,default="..")
     Dimension = models.CharField(max_length=100,default="..")
     Qual = models.CharField(max_length=100,default="..")
     Prévu_h = models.CharField(max_length=100,default="..")
-    Réalisé_h = models.CharField(max_length=100,default="..")
+    Réalisé_h = models.IntegerField(default=0)
     Conformité_C = models.CharField(max_length=100,default="..")
     Conformité_NC = models.CharField(max_length=100,default="..")
     
