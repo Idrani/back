@@ -9,6 +9,9 @@ from rest_framework.exceptions import AuthenticationFailed
 from .serializers import UserSerializer
 from .models import User
 import jwt, datetime
+from django.http.response import JsonResponse
+from rest_framework.parsers import JSONParser
+
 
 
 # Create your views here.
@@ -27,6 +30,7 @@ class LoginView(APIView):
 
 
         user = User.objects.filter(email=email).first()
+        user = User.objects.filter(name=name).first()
 
         if user is None:
             raise AuthenticationFailed('User not found!')
@@ -81,3 +85,27 @@ class LogoutView(APIView):
             'message': 'success'
         }
         return response
+
+
+def UsersApi(request,id=0):
+    if request.method=='GET':
+        listpie = User.objects.all()
+        list_serializer = UserSerializer(listpie, many=True)
+        return JsonResponse(list_serializer.data, safe=False)
+
+    elif request.method=='POST':
+        list_data=JSONParser().parse(request)
+        list_serializer = UserSerializer(data=list_data)
+        if list_serializer.is_valid():
+            list_serializer.save()
+            return JsonResponse("Added Successfully!!" , safe=False)
+        return JsonResponse("Failed to Add.",safe=False)
+    
+    elif request.method=='PATCH':
+        list_data = JSONParser().parse(request)
+        listpieces=User.objects.get(name=list_data['name'])
+        list_serializer=UserSerializer(listpieces,data=list_data)
+        if list_serializer.is_valid():
+            list_serializer.save()
+            return JsonResponse("Updated Successfully!!", safe=False)
+        return JsonResponse("Failed to Update.", safe=False)        

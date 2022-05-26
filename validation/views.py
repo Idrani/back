@@ -32,3 +32,14 @@ def ValApi(request,id=0):
             val_serializer.save()
             return JsonResponse("Updated Successfully!!", safe=False)
         return JsonResponse("Failed to Update.", safe=False)
+
+    elif request.method=='PATCH':
+        val_data = JSONParser().parse(request)
+        valof=VAL.objects.get(NumOF=val_data['NumOF'])
+        val_serializer=ValidationSerializer(valof,data=val_data)
+        if val_serializer.is_valid():
+            val_serializer.save()
+            return JsonResponse("PATCHED Successfully!!", safe=False)
+        return JsonResponse("Failed to PATCH.", safe=False)
+
+  

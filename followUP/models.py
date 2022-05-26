@@ -7,6 +7,12 @@ class OF(models.Model):
     StatutPr = models.CharField(default="..", max_length=100)
     RefPr = models.IntegerField( blank=True, null=True)
     Priorité = models.CharField(default="..", max_length=100)
+    Realise_T=models.IntegerField( blank=True, null=True)
+    Rest_T=models.IntegerField( blank=True, null=True)
+    Avancement=models.CharField(default="..", max_length=100)
+    State=models.CharField(default="..", max_length=100)
+
+
     # PA_FAO = models.IntegerField(max_length=100)
     # PA_CNC = models.IntegerField(max_length=100)
     # PA_Router = models.IntegerField(max_length=100)

@@ -10,3 +10,4 @@ class VAL(models.Model):
     date3 = models.CharField(default='', max_length=100)
     date4 = models.CharField(default='', max_length=100)
     date5 = models.CharField(default='', max_length=100)
+    pri = models.IntegerField( blank=True, null=True)

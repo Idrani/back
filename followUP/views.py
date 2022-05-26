@@ -25,7 +25,7 @@ def fabOrderApi(request,id=0):
     
     elif request.method=='PATCH':
         of_data = JSONParser().parse(request)
-        faborder=OF.objects.get(RefPr=of_data['RefPr'])
+        faborder=OF.objects.get(NumOF=of_data['NumOF'])
         of_serializer=OFSerializer(faborder,data=of_data)
         if of_serializer.is_valid():
             of_serializer.save()
