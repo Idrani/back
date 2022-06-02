@@ -11,6 +11,8 @@ class OF(models.Model):
     Rest_T=models.IntegerField( blank=True, null=True)
     Avancement=models.CharField(default="..", max_length=100)
     State=models.CharField(default="..", max_length=100)
+    cloture=models.CharField(default="..", max_length=100)
+
 
 
     # PA_FAO = models.IntegerField(max_length=100)

@@ -42,4 +42,7 @@ def ValApi(request,id=0):
             return JsonResponse("PATCHED Successfully!!", safe=False)
         return JsonResponse("Failed to PATCH.", safe=False)
 
-  
+    elif request.method=='DELETE':
+        faborder=VAL.objects.get(NumOF=id)
+        faborder.delete()
+        return JsonResponse("Deleted Succeffully!!", safe=False)

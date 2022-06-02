@@ -8,7 +8,7 @@ class LIST_PIECES(models.Model):
 
     Qte = models.CharField(max_length=100,default="..")
     Ref = models.CharField(max_length=100,default="..")
-    statut = models.CharField(max_length=100,default="pas lancer")
+    statut = models.CharField(max_length=100,default="Ready")
     
     Désignation = models.CharField(max_length=100,default="..")
     Matiére = models.CharField(max_length=100,default="..")
@@ -28,3 +28,7 @@ class LIST_PIECES(models.Model):
     NConf_NC = models.IntegerField( blank=True, null=True)
     Rest = models.IntegerField( blank=True, null=True)
     avancement = models.CharField(max_length=100,default="..")
+    
+    id_plan = models.IntegerField(blank=False, default=0)
+    lien = models.CharField(max_length=300,default="..")
+    
