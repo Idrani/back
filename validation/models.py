@@ -11,3 +11,7 @@ class VAL(models.Model):
     date4 = models.CharField(default='', max_length=100)
     date5 = models.CharField(default='', max_length=100)
     pri = models.IntegerField( blank=True, null=True,unique=True)
+    owner1 = models.CharField(default='', max_length=100)
+    owner2 = models.CharField(default='', max_length=100)
+    owner3 = models.CharField(default='', max_length=100)
+    owner4 = models.CharField(default='', max_length=100)

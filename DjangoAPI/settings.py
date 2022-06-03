@@ -47,8 +47,7 @@ INSTALLED_APPS = [
     'validation',
     'users',
     
-    
-   
+
     
 ]
 
